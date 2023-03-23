@@ -6,17 +6,41 @@
 
 body{
     font-family: 'consolas', sans-serif;
-    background: #2b2b2b;
+    background: #444;
     color: #2bff00;
 }
 
 h1{
+    display: flex;
     font-size: 40px;
-    
     font-weight: 600;
     text-align: center;
-    background: #333;
-    margin: 20px 0;
+    background: #444;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+@keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+}
+
+h1::after {
+    content: "";
+    width: 5px;
+    height: 30px;
+    background: #2bff00;
+    display: inline-block;
+    animation: cursor-blink 1.5s steps(2) infinite;
+  }
+
+
+nav{
+    box-shadow: 6px 6px 6px 0px #2bff00;
+    transition: box-shadow 0.3s ease-in-out;
+    background: #2bff00;
 }
 
 ul{
@@ -24,15 +48,22 @@ ul{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: #333;
+    background: #444;
     padding: 10px;
     
 }
 
 a{
     text-decoration: none;
-    color: #fff;
+    color: #2bff00;
     padding: 10px;
     font-size: 20px;
     font-weight: 500;
 }
+
+a:hover{
+    background: #2bff00;
+    color: #444;
+    transition: all 0.5s ease-in-out;
+}
+
