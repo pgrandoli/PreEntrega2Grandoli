@@ -13,6 +13,7 @@ body{
 h1{
     display: flex;
     font-size: 40px;
+    margin-top: 40px;
     font-weight: 600;
     text-align: center;
     background: #444;
@@ -38,7 +39,7 @@ h1::after {
 
 
 nav{
-    box-shadow: 6px 6px 6px 0px #2bff00;
+    box-shadow: 0px 10px 10px 0px #2bff00;
     transition: box-shadow 0.3s ease-in-out;
     background: #2bff00;
 }
@@ -64,6 +65,34 @@ a{
 a:hover{
     background: #2bff00;
     color: #444;
+    transition: all 0.3s ease-in-out;
+}
+
+footer{
+    background: #444;
+    color: #2bff00;
+    text-align: right;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0px -15px 10px -10px #2bff00;
+    transition: box-shadow 0.3s ease-in-out;
+    }
+
+button{
+    background: #2bff00;
+    color: #444;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
     transition: all 0.5s ease-in-out;
+}
+
+button:hover{
+    background: #444;
+    color: #2bff00;
+    transition: all 0.3s ease-in-out;
 }
 
