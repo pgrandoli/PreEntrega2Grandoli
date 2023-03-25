@@ -142,23 +142,23 @@ samp{
 
 
     .navBar .fa-bars{
-        display: flex;
+        display: block;
         
     }
 
     .navBar .fa-bars:hover + ul{
-        left: 0;
+        right: 0;
         color: #444;
         transition: all 0.3s ease-in-out;
     }
 
     .navbar ul:hover{
-        left: 0;
+        right: 0;
     }
 
     .navBar ul{
         top:0;
-        left: -350px;
+        right: -350px;
         position: fixed;
         background-color: #333;
         width: 200px;
