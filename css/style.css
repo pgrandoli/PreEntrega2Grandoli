@@ -28,7 +28,7 @@ h1{
     }
 }
 
-h1::after {
+h1:after {
     content: "";
     width: 5px;
     height: 30px;
@@ -38,18 +38,31 @@ h1::after {
   }
 
 
-nav{
+.navBar{
     box-shadow: 0px 10px 10px 0px #2bff00;
     transition: box-shadow 0.3s ease-in-out;
     background: #2bff00;
 }
+.navbar-toggler {
+    border: none;
+    background: transparent;
+}
+  
+@media (max-width: 540px) {
 
+    .navbar-collapse {
+    display: none;
+}
+
+
+}
+  
 ul{
     list-style: none;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: #444;
+    background: #333;
     padding: 10px;
     
 }
@@ -69,7 +82,7 @@ a:hover{
 }
 
 footer{
-    background: #444;
+    background: #333;
     color: #2bff00;
     text-align: right;
     padding: 10px;
@@ -78,6 +91,13 @@ footer{
     box-shadow: 0px -15px 10px -10px #2bff00;
     transition: box-shadow 0.3s ease-in-out;
     }
+
+footer .container .social-icons{
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    gap: 10px;
+}
 
 button{
     background: #2bff00;
@@ -108,5 +128,18 @@ button:hover{
     transition: transform 0.3s ease-in-out;
 }
 
+@media screen and (max-width: 1080px) {
+    .card{
+        width: 50rem;
+        
+    }
 
+     .navBar .list-inline .li .a{
+        display: none;
+        
+    } 
+}
+
+
+    
 
