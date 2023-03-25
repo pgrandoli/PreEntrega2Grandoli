@@ -42,6 +42,7 @@ h1:after {
     box-shadow: 0px 10px 10px 0px #2bff00;
     transition: box-shadow 0.3s ease-in-out;
     background: #333;
+    height: 50px;
 }
  
 ul{
@@ -55,7 +56,8 @@ ul{
 .navBar .fa-bars{
     display: none;
     font-size: 32px;
-    margin: 10px;
+    padding: 10px;
+    
 }
 
 
@@ -123,8 +125,7 @@ button:hover{
 
     .navBar .fa-bars{
         display: flex;
-        margin: 10px;
-        padding: 10px;
+        
     }
 
     .navBar .fa-bars:hover + ul{
@@ -150,7 +151,10 @@ button:hover{
         align-items: flex-start;
         
     }
-    
+    @media(max-width: 444px) {
+        h1{
+            font-size: 30px;
+        }
 }
 
 
