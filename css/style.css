@@ -57,6 +57,11 @@ h1:after {
     transition: all 0.3s ease-in-out;
 }
 
+.carousel-item{
+    padding: 50px;
+    height: 50vh;
+
+}
  
 /* ul{
     list-style: none;
