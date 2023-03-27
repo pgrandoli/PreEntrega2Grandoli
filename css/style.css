@@ -48,6 +48,7 @@ h1:after {
 
 .navbar-toggler{
     background: #2bff00;
+    border-radius: 0;
     color: #444;
     margin: 10px;
     padding: 10px;
@@ -90,7 +91,6 @@ h1:after {
     
 } */
 
-
 a{
     text-decoration: none;
     color: #2bff00;
@@ -104,6 +104,7 @@ a:hover{
     color: #444;
     transition: all 0.3s ease-in-out;
 }
+
 
 footer{
     background: #333;
